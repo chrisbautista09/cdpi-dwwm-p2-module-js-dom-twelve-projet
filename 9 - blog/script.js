@@ -30,11 +30,24 @@ const posts =
     }
 ];
 
-// 3. Je parcours la bdd
-posts.forEach(function(post){
-    // 4. Je créer un nouveau post dans le conteneur de post pour chaque post de la BDD
-    
-    // 5. Je l'ajoute dans le conteneur de publication
-    
+ 
+    // 3. Je parcours la bdd
+posts.forEach(function(post, index){
 
+    // Vérif console : affiche les données en cours
+    console.log(post.titre);   // Affiche le titre de l'article courant
+    console.log(post.extrait); // Affiche l'extrait de l'article courant
+
+    // 4. Je crée un bloc HTML pour le post
+    const postHTML = `
+        <article class="post">
+        <h2 class="post-titre"><a href="${post.link}">${post.titre}</a></h2>
+        <p class="post-extrait">${post.extrait}</p>
+        <p><a class="post-hashtag" href="${post.link}">${post.hashtag}</a></p>
+    </article>
+    `;
+
+    // 5. J'ajoute le post dans le conteneur
+    postsContainer.innerHTML += postHTML;
 });
+
